@@ -1,0 +1,43 @@
+<!-- Vista: Paso 1 del examen, datos del estudiante (<exam-runner>)
+     El estudiante NO inicia sesión: solo ingresa su identificación y nombre completo. -->
+<a href="#/examenes" class="btn btn--link back-link"><i data-icon="arrowLeft"></i><span>Volver a exámenes</span></a>
+
+<section class="card student-card">
+    <div class="student-card__info">
+        <span class="badge badge--primary">{{codigo}}</span>
+        <h1>{{titulo}}</h1>
+        <p class="text-muted">{{descripcion}}</p>
+
+        <ul class="stats-list">
+            <li><i data-icon="list"></i><span><strong>{{totalPreguntas}}</strong> preguntas</span></li>
+            <li><i data-icon="clock"></i><span><strong>{{tiempo}}</strong> minutos</span></li>
+            <li><i data-icon="target"></i><span>Aprueba con <strong>{{porcentajeAprobacion}}%</strong></span></li>
+        </ul>
+
+        <div class="banner banner--info">
+            <i data-icon="alert"></i>
+            <p>Solo tienes <strong>un intento</strong>. Cuando inicies, el reloj comenzará a correr y al llegar a 0 el examen se enviará automáticamente.</p>
+        </div>
+    </div>
+
+    <form id="start-form" class="student-card__form" novalidate>
+        <h2>Tus datos</h2>
+        <p class="text-muted">Tus respuestas quedarán asociadas a esta información.</p>
+
+        <div class="form-group">
+            <label for="s-identificacion">Número de identificación</label>
+            <input id="s-identificacion" name="identificacion" inputmode="numeric" placeholder="Ej: 1098765432">
+            <small class="field-error" data-error-for="identificacion"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="s-nombre">Nombre completo</label>
+            <input id="s-nombre" name="nombre" autocomplete="name" placeholder="Ej: Andrés Pérez">
+            <small class="field-error" data-error-for="nombre"></small>
+        </div>
+
+        <p class="form-alert" role="alert" hidden></p>
+
+        <button type="submit" class="btn btn--primary btn--block"><i data-icon="arrowRight"></i><span>Comenzar examen</span></button>
+    </form>
+</section>

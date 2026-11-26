@@ -1,0 +1,23 @@
+<!-- Vista: Paso 2, presentación del examen (<exam-runner>)
+     {{{preguntas}}} -> las preguntas enumeradas con sus opciones (las arma el componente). -->
+<header class="exam-header">
+    <div class="exam-header__info">
+        <h1>{{titulo}}</h1>
+        <ul class="exam-header__meta">
+            <li><i data-icon="list"></i><span>{{totalPreguntas}} preguntas</span></li>
+            <li><i data-icon="target"></i><span>Aprueba con {{porcentajeAprobacion}}%</span></li>
+            <li><i data-icon="user"></i><span>{{nombre}}</span></li>
+        </ul>
+    </div>
+    <exam-timer></exam-timer>
+    <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+</header>
+
+<form id="exam-form" class="exam-form" novalidate>
+    {{{preguntas}}}
+
+    <div class="exam-form__footer">
+        <p class="text-muted" id="answered-label"></p>
+        <button type="submit" class="btn btn--primary btn--lg"><i data-icon="check"></i><span>Terminar</span></button>
+    </div>
+</form>

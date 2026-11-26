@@ -1,0 +1,11 @@
+<!-- Vista: Mensaje del examen (no disponible, ya presentado, otro en curso) (<exam-runner>)
+     {{{acciones}}} -> botón adicional opcional (lo arma el componente). -->
+<section class="card empty-state empty-state--card">
+    <i data-icon="alert"></i>
+    <h1>{{titulo}}</h1>
+    <p class="text-muted">{{mensaje}}</p>
+    <div class="form-actions form-actions--center">
+        <a href="#/examenes" class="btn btn--ghost"><i data-icon="arrowLeft"></i><span>Volver a exámenes</span></a>
+        {{{acciones}}}
+    </div>
+</section>

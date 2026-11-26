@@ -1,0 +1,15 @@
+<!-- Vista: Exámenes disponibles, módulo PÚBLICO (<exam-catalog>)
+     {{{inProgressBanners}}} -> avisos de exámenes en curso en este navegador (los arma el componente).
+     Las tarjetas de #exam-grid se generan desde JS con <exam-card>. -->
+<section class="hero">
+    <h1>Exámenes disponibles</h1>
+    <p>Elige un examen, ingresa tu identificación y nombre completo, y responde antes de que se acabe el tiempo. No necesitas iniciar sesión.</p>
+    <label class="search search--lg">
+        <i data-icon="search"></i>
+        <input type="search" id="catalog-search" placeholder="Buscar examen…" aria-label="Buscar examen">
+    </label>
+</section>
+
+{{{inProgressBanners}}}
+
+<div class="exam-grid" id="exam-grid"></div>

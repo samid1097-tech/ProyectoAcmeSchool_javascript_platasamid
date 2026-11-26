@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acme school</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/animations.css">
-    <script src="js/main.js" defer></script>
+    <meta name="description" content="Acme School - Plataforma para crear y presentar exámenes en línea.">
+    <title>Acme School | Plataforma de exámenes</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%233b5bdb'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>A</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <main id="inicio"></main>
+    <app-navbar></app-navbar>
 
+    <main id="app" class="container" tabindex="-1"></main>
 
+    <footer class="footer">
+        <p>&copy; 2026 <strong>Acme School</strong> &middot; Plataforma de exámenes en línea</p>
+    </footer>
 
-
-
+    <noscript>
+        <p class="noscript">Esta aplicación necesita JavaScript habilitado para funcionar.</p>
+    </noscript>
 </body>
 </html>

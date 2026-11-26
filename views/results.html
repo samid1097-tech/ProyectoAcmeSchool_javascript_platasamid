@@ -1,0 +1,46 @@
+<!-- Vista: Resultados (<results-view>). {{{examOptions}}} y {{{groupOptions}}} son los <option> de los filtros; las estadísticas y filas se generan desde JS. -->
+<header class="page-header">
+    <div>
+        <h1>Resultados</h1>
+        <p class="text-muted">Consulta los exámenes presentados por los estudiantes.</p>
+    </div>
+</header>
+
+<div class="stats-grid" id="stats"></div>
+
+<section class="card">
+    <div class="card__toolbar">
+        <h2 class="card__title"><i data-icon="chart"></i> Historial</h2>
+        <div class="toolbar-filters">
+            <select id="filter-exam" aria-label="Filtrar por examen">
+                <option value="">Todos los exámenes</option>
+                {{{examOptions}}}
+            </select>
+            <select id="filter-group" aria-label="Filtrar por grupo">
+                <option value="">Todos los grupos</option>
+                {{{groupOptions}}}
+            </select>
+            <label class="search">
+                <i data-icon="search"></i>
+                <input id="filter-text" type="search" placeholder="Nombre o identificación" aria-label="Buscar estudiante">
+            </label>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table table--responsive">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Estudiante</th>
+                    <th>Grupo</th>
+                    <th>Examen</th>
+                    <th>Aciertos</th>
+                    <th>Puntaje</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+        </table>
+    </div>
+</section>

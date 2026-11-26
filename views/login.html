@@ -1,0 +1,46 @@
+<!-- Vista: Iniciar sesión (<login-view>) -->
+<section class="login">
+    <div class="login__aside">
+        <span class="navbar__logo navbar__logo--lg">A</span>
+        <h1>Bienvenido a <br><strong>Acme School</strong></h1>
+        <p>Crea, administra y califica exámenes en línea de forma sencilla.</p>
+        <ul class="login__features">
+            <li><i data-icon="check"></i> Gestión de usuarios y exámenes</li>
+            <li><i data-icon="check"></i> Exámenes asignados por grupo</li>
+            <li><i data-icon="check"></i> Tiempo en tiempo real y resultados inmediatos</li>
+        </ul>
+    </div>
+
+    <div class="login__card">
+        <h2>Iniciar sesión</h2>
+        <p class="text-muted">Acceso para administrativos y docentes.</p>
+
+        <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="login-email">Correo electrónico</label>
+                <input id="login-email" name="email" type="email" autocomplete="username" placeholder="nombre@acme.com" required>
+                <small class="field-error" data-error-for="email"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="login-password">Contraseña</label>
+                <div class="input-with-action">
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+                    <button type="button" class="input-action" data-action="toggle-password" aria-label="Mostrar contraseña"><i data-icon="eye"></i></button>
+                </div>
+                <small class="field-error" data-error-for="password"></small>
+            </div>
+
+            <p class="form-alert" role="alert" hidden></p>
+
+            <button type="submit" class="btn btn--primary btn--block"><i data-icon="login"></i><span>Ingresar</span></button>
+        </form>
+
+        <div class="login__hint">
+            <strong>Cuenta inicial:</strong> admin@acme.com / admin123
+        </div>
+
+        <div class="login__divider"><span>¿Eres estudiante?</span></div>
+        <a href="#/examenes" class="btn btn--outline btn--block"><i data-icon="list"></i><span>Presentar un examen</span></a>
+    </div>
+</section>

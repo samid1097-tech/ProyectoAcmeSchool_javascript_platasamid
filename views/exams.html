@@ -1,0 +1,87 @@
+<!-- Vista: Gestión de exámenes (<exams-view>). Las casillas de grupos, el editor de preguntas y las filas de la tabla se generan desde JS. -->
+<header class="page-header">
+    <div>
+        <h1>Gestión de exámenes</h1>
+        <p class="text-muted">Crea exámenes, define su tiempo, porcentaje de aprobación y preguntas.</p>
+    </div>
+</header>
+
+<section class="card form-card" id="exam-form-panel" aria-labelledby="exam-form-title">
+    <h2 class="card__title" id="exam-form-title"><i data-icon="plus"></i> Nuevo examen</h2>
+
+    <form id="exam-form" novalidate>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="e-codigo">Código</label>
+                <input id="e-codigo" name="codigo" placeholder="Ej: MAT-201" maxlength="20">
+                <small class="field-error" data-error-for="codigo"></small>
+            </div>
+
+            <div class="form-group form-group--wide">
+                <label for="e-titulo">Título</label>
+                <input id="e-titulo" name="titulo" placeholder="Ej: Álgebra básica" maxlength="100">
+                <small class="field-error" data-error-for="titulo"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="e-tiempo">Tiempo (minutos)</label>
+                <input id="e-tiempo" name="tiempo" type="number" min="1" max="300" placeholder="30">
+                <small class="field-error" data-error-for="tiempo"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="e-porcentaje">Porcentaje de aprobación (%)</label>
+                <input id="e-porcentaje" name="porcentajeAprobacion" type="number" min="1" max="100" placeholder="60">
+                <small class="field-error" data-error-for="porcentajeAprobacion"></small>
+            </div>
+
+            <div class="form-group form-group--full">
+                <label for="e-descripcion">Descripción del examen</label>
+                <textarea id="e-descripcion" name="descripcion" rows="3" placeholder="¿Qué evalúa este examen?" maxlength="500"></textarea>
+                <small class="field-error" data-error-for="descripcion"></small>
+            </div>
+
+            <fieldset class="form-group form-group--full groups-picker">
+                <legend>Grupos asignados <small class="text-muted">(solo estos grupos verán el examen)</small></legend>
+                <div class="checkbox-list" id="groups-picker"></div>
+                <small class="field-error" data-error-for="grupos"></small>
+            </fieldset>
+        </div>
+
+        <question-editor></question-editor>
+
+        <p class="form-alert" role="alert" hidden></p>
+
+        <div class="form-actions">
+            <button type="button" class="btn btn--ghost" id="btn-cancel" hidden>Cancelar</button>
+            <button type="submit" class="btn btn--primary" id="btn-submit"><i data-icon="check"></i><span>Guardar examen</span></button>
+        </div>
+    </form>
+</section>
+
+<section class="card" aria-label="Exámenes registrados">
+    <div class="card__toolbar">
+        <h2 class="card__title"><i data-icon="file"></i> Exámenes registrados</h2>
+        <label class="search">
+            <i data-icon="search"></i>
+            <input id="exams-search" type="search" placeholder="Buscar por código o título" aria-label="Buscar exámenes">
+        </label>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table table--responsive">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Título</th>
+                    <th>Tiempo</th>
+                    <th>Aprobación</th>
+                    <th>Preguntas</th>
+                    <th>Grupos</th>
+                    <th class="text-right">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="exams-body"></tbody>
+        </table>
+    </div>
+</section>

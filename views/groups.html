@@ -1,0 +1,66 @@
+<!-- Vista: Grupos y estudiantes (<groups-view>). La lista de grupos y la tabla de estudiantes se generan desde JS. -->
+<header class="page-header">
+    <div>
+        <h1>Grupos y estudiantes</h1>
+        <p class="text-muted">Organiza a los estudiantes por grupos para asignarles exámenes.</p>
+    </div>
+</header>
+
+<div class="layout-split">
+    <div class="stack">
+        <section class="card form-card" aria-labelledby="group-form-title">
+            <h2 id="group-form-title" class="card__title"><i data-icon="plus"></i> Nuevo grupo</h2>
+
+            <form id="group-form" novalidate>
+                <div class="form-group">
+                    <label for="g-nombre">Nombre del grupo</label>
+                    <input id="g-nombre" name="nombre" placeholder="Ej: Grupo C" maxlength="40">
+                    <small class="field-error" data-error-for="nombre"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="g-descripcion">Descripción (opcional)</label>
+                    <input id="g-descripcion" name="descripcion" placeholder="Ej: Jornada noche" maxlength="80">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost" id="btn-cancel" hidden>Cancelar</button>
+                    <button type="submit" class="btn btn--primary" id="btn-submit"><i data-icon="check"></i><span>Guardar grupo</span></button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card" aria-label="Grupos registrados">
+            <h2 class="card__title"><i data-icon="layers"></i> Grupos</h2>
+            <ul class="group-list" id="groups-list"></ul>
+        </section>
+    </div>
+
+    <section class="card" aria-label="Estudiantes registrados">
+        <div class="card__toolbar">
+            <h2 class="card__title"><i data-icon="users"></i> Estudiantes <span class="badge badge--primary" id="students-count"></span></h2>
+            <div class="toolbar-filters">
+                <select id="filter-group" aria-label="Filtrar por grupo"></select>
+                <label class="search">
+                    <i data-icon="search"></i>
+                    <input id="filter-text" type="search" placeholder="Nombre, email o ID" aria-label="Buscar estudiante">
+                </label>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="table table--responsive">
+                <thead>
+                    <tr>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Grupo</th>
+                        <th>Presentados</th>
+                        <th class="text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="students-body"></tbody>
+            </table>
+        </div>
+    </section>
+</div>

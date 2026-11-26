@@ -1,0 +1,113 @@
+<!-- Vista: Gestión de usuarios (<users-view>)
+     {{{groupOptions}}} -> <option> de cada grupo (lo arma el componente).
+     El aviso #group-field .field-hint se elimina desde JS cuando sí hay grupos.
+     #group-field solo se muestra si el cargo es Estudiante; #password-field solo para el personal
+     (los estudiantes no inician sesión).
+     Las filas de la tabla (#users-body) se generan desde JS con los datos. -->
+<header class="page-header">
+    <div>
+        <h1>Gestión de usuarios</h1>
+        <p class="text-muted">Administra las cuentas de administrativos, docentes y estudiantes.</p>
+    </div>
+    <span class="badge badge--primary" id="users-count"></span>
+</header>
+
+<div class="layout-split">
+    <section class="card form-card" aria-labelledby="user-form-title">
+        <h2 id="user-form-title" class="card__title"><i data-icon="plus"></i> Nuevo usuario</h2>
+
+        <form id="user-form" novalidate>
+            <div class="form-group">
+                <label for="u-identificacion">Número de identificación</label>
+                <input id="u-identificacion" name="identificacion" inputmode="numeric" placeholder="Ej: 1098765432">
+                <small class="field-error" data-error-for="identificacion"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="u-nombre">Nombre completo</label>
+                <input id="u-nombre" name="nombre" autocomplete="name" placeholder="Ej: Laura Gómez">
+                <small class="field-error" data-error-for="nombre"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="u-email">Email</label>
+                <input id="u-email" name="email" type="email" autocomplete="email" placeholder="nombre@acme.com">
+                <small class="field-error" data-error-for="email"></small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="u-telefono">Teléfono</label>
+                    <input id="u-telefono" name="telefono" type="tel" inputmode="tel" placeholder="3001234567">
+                    <small class="field-error" data-error-for="telefono"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="u-cargo">Cargo</label>
+                    <select id="u-cargo" name="cargo">
+                        <option value="">Selecciona…</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Docente">Docente</option>
+                        <option value="Estudiante">Estudiante</option>
+                    </select>
+                    <small class="field-error" data-error-for="cargo"></small>
+                </div>
+            </div>
+
+            <div class="form-group fade-in" id="group-field" hidden>
+                <label for="u-grupo">Grupo del estudiante</label>
+                <select id="u-grupo" name="grupoId">
+                    <option value="">Selecciona un grupo…</option>
+                    {{{groupOptions}}}
+                </select>
+                <small class="field-hint">No hay grupos. <a href="#/grupos">Crea un grupo</a> primero.</small>
+                <small class="field-error" data-error-for="grupoId"></small>
+            </div>
+
+            <div class="form-group" id="password-field">
+                <label for="u-password">Contraseña</label>
+                <input id="u-password" name="password" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres">
+                <small class="field-hint" id="password-hint" hidden>Déjala vacía para conservar la contraseña actual.</small>
+                <small class="field-error" data-error-for="password"></small>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn--ghost" id="btn-cancel" hidden>Cancelar</button>
+                <button type="submit" class="btn btn--primary" id="btn-submit"><i data-icon="check"></i><span>Guardar usuario</span></button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card" aria-label="Usuarios registrados">
+        <div class="card__toolbar">
+            <h2 class="card__title"><i data-icon="users"></i> Usuarios registrados</h2>
+            <div class="toolbar-filters">
+                <select id="users-filter" aria-label="Filtrar por cargo">
+                    <option value="">Todos los cargos</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Docente">Docente</option>
+                    <option value="Estudiante">Estudiante</option>
+                </select>
+                <label class="search">
+                    <i data-icon="search"></i>
+                    <input id="users-search" type="search" placeholder="Nombre, email o ID" aria-label="Buscar usuarios">
+                </label>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="table table--responsive">
+                <thead>
+                    <tr>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Cargo</th>
+                        <th class="text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="users-body"></tbody>
+            </table>
+        </div>
+    </section>
+</div>
